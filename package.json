@@ -1,0 +1,37 @@
+{
+  "name": "mern-twitter",
+  "version": "1.0.0",
+  "description": "Full Stack App buit in MERN",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rammazzoti2000/mern-twitter.git"
+  },
+  "keywords": [
+    "mern",
+    "twitter"
+  ],
+  "author": "Alexandru Bangau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rammazzoti2000/mern-twitter/issues"
+  },
+  "homepage": "https://github.com/rammazzoti2000/mern-twitter#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.13",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
