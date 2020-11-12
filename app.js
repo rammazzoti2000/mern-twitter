@@ -1,14 +1,27 @@
 const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI
-const app = express();
+const bodyParser = require('body-parser');
+
+const users = require("./routes/api/users");
+const tweets = require("./routes/api/tweets");
 
 mongoose
-  .connect(db, { useNewUrlParser: true })
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.log(err));
 
-app.get('/', (req, res) => res.send('I feel happy'));
+app.get('/', (req, res) => {
+  // debugger;
+  res.send('I feel happy');
+});
+
+app.use('/api/users', users);
+app.use('/api/tweets', tweets);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
 
