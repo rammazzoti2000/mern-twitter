@@ -17,11 +17,11 @@ app.get('/', (req, res) => {
   res.send('I feel happy');
 });
 
-app.use('/api/users', users);
-app.use('/api/tweets', tweets);
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use('/api/users', users);
+app.use('/api/tweets', tweets);
 
 const port = process.env.PORT || 5000;
 
