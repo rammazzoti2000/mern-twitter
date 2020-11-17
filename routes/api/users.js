@@ -8,6 +8,9 @@ const passport = require('passport');
 const User = require('../models/User');
 const keys = require('../../config/keys');
 
+const validateRegisterInput = require('../../validation/register');
+const validateLoginInput = require('../../validation/login')
+
 router.get('/test', (req, res) => res.json({ msg: 'This is the users route' }));
 
 // private auth route
@@ -21,6 +24,9 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
 
 // registration route
 router.post('/register', (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+  if (!isValid) return res.status(400).json(errors);
+
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) return res.status(400).json({ email: 'A user has already registered with this address' });
@@ -63,6 +69,9 @@ router.post('/register', (req, res) => {
 
 // login route
 router.post('/login', (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+  if (!isValid) return res.status(400).json(errors);
+
   const email = req.body.email;
   const password = req.body.password;
 
