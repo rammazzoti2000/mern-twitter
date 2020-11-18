@@ -13,7 +13,7 @@ router.get('/', (req, res) =>{
     .catch(err => res.status(404).json({ notweetsfound: 'No tweets found' }));
 });
 
-// a single'users tweets route
+// a single user's tweets route
 router.get('/user/:user_id', (req, res) => {
   Tweet.find({ user: req.params.user_id })
     .then(tweets => res.json(tweets))
