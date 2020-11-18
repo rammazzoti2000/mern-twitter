@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Tweet = require('../models/Tweet');
 const validateTweetInput = require('../../validation/tweets');
-const { response } = require('express');
 
 // all tweets route
 router.get('/', (req, res) =>{
@@ -25,11 +23,11 @@ router.get('/user/:user_id', (req, res) => {
 // individual tweets route
 router.get('/:id', (req, res) => {
   Tweet.findById(req.params.id)
-    .then(tweet => response.json(tweet))
+    .then(tweet => res.json(tweet))
     .catch(err => res.status(404).json({ notweetfound: 'No tweet found with that id' }));
 });
 
-// protected route for a user to post
+// protected route for a user to post a tweet
 router.post('/',
   passport.authenticate('jwt', {session: false}),
   (req, res) => {
