@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 1000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +10,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NavBar button {
+  height: 20px;
+}
+
+.Links1 {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Links2 {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
 }
