@@ -8,6 +8,15 @@ const passport = require('passport');
 const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 
+const path = require('path');
+
+if (process.env.NODE_DEV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (res, req) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
+
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB successfully'))
