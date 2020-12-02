@@ -3,18 +3,18 @@ import TweetBox from './tweet_box';
 
 class TweetCompose extends React.Component {
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.state = {
-          text: "",
-          newTweet: ""
-      }
+    this.state = {
+      text: "",
+      newTweet: ""
+    }
 
-      this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   } 
 
   componentWillReceiveProps(nextProps) {
-      this.setState({newTweet: nextProps.newTweet.text});
+    this.setState({newTweet: nextProps.newTweet.text});
   }
 
   handleSubmit(e) {
@@ -24,7 +24,7 @@ class TweetCompose extends React.Component {
     };
 
     this.props.composeTweet(tweet); 
-    this.setState({text: ''})
+    this.setState({text: ''});
   }
 
   update() {
@@ -35,20 +35,20 @@ class TweetCompose extends React.Component {
 
   render() {
     return (
-        <div>
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <input type="textarea"
-                        value={this.state.text}
-                        onChange={this.update()}
-                        placeholder="Write your tweet..."
-                    />
-                    <input type="submit" value="Submit" />
-                </div>
-            </form>
-            <br />
-            <TweetBox text={this.state.newTweet} />
-        </div>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <input type="textarea"
+              value={this.state.text}
+              onChange={this.update()}
+              placeholder="Write your tweet..."
+            />
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+        <br />
+        <TweetBox text={this.state.newTweet} />
+      </div>
     )
   }
 }
