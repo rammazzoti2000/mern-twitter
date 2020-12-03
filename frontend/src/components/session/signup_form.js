@@ -61,15 +61,15 @@ class SignupForm extends React.Component {
           <div className="login-form">
             <br/>
               <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
+                value={this.state.handle}
+                onChange={this.update('handle')}
+                placeholder="User Name"
               />
             <br/>
               <input type="text"
-                value={this.state.handle}
-                onChange={this.update('handle')}
-                placeholder="Handle"
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
               />
             <br/>
               <input type="password"
